@@ -93,9 +93,8 @@ export default {
 
                     <!-- {{--@can('view_report')--}} -->
                     <li class="nav-item">
-                        <!-- {{--<a href="{{route('admin.reports.index')}}" class="nav-link" id="reports">--}} -->
-                        <a href="#" class="nav-link" id="reports">
-                        <i class="nav-icon fas fa-flag"></i>
+                        <a href="#" class="nav-link" @click="$inertia.visit(route('admin.reports.index'))" id="reports">
+                            <i class="nav-icon fas fa-flag"></i>
                         <p>
                             <!-- {{__('Reports')}} -->
                             Reports

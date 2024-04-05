@@ -12,8 +12,8 @@ export default {
   },
   data() {
     return {
-        message: 'Invoices',
-        iconClass: 'nav-icon fas fa-layer-group'
+        message: 'Repots',
+        iconClass: 'fa fa-flag'
 
     };
   }
@@ -22,7 +22,7 @@ export default {
 <template>
 
 <div>
-        <Head title="Profile" />
+        <Head title="Reports" />
 
         <AuthenticatedLayout>
             <div class="content-wrapper">
@@ -36,15 +36,8 @@ export default {
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <!-- {{__('Invoices Table')}} -->
-                                    Invoices Table
+                                    Reports Table
                                 </h3>
-                                <a href="#"  @click="$inertia.visit(route('admin.invoice.create'))" class="btn btn-primary btn-sm float-right">
-                                    <!-- <router-link to="/createInvoice" class="btn btn-primary btn-sm float-right"> -->
-                                        <i class="fa fa-plus"></i>
-                                        <!-- {{__('Create')}} -->
-                                        Create
-                                </a>
-                                    <!-- </router-link> -->
                             </div>
 
                             <!-- /.card-header -->
@@ -119,27 +112,27 @@ export default {
                                     <tr>
                                         <th width="10px">#</th>
                                         <!-- <th width="10px">{{__('Barcode')}}</th>
-                                        <th width="100px">{{__('Patient Code')}}</th>
-                                        <th>{{__('Patient Name')}}</th>
-                                        <th width="100px">{{__('Subtotal')}}</th>
-                                        <th width="100px">{{__('Discount')}}</th>
-                                        <th width="100px">{{__('Total')}}</th>
-                                        <th width="100px">{{__('Paid')}}</th>
-                                        <th width="100px">{{__('Due')}}</th>
-                                        <th width="100px">{{__('Date')}}</th>
-                                        <th width="10px">{{__('Status')}}</th>
-                                        <th width="50px">{{__('Action')}}</th> -->
+                                        <th width="100px">{{ __('Patient Code') }}</th>
+                                        <th>{{ __('Patient Name') }}</th>
+                                        <th width="50px">{{ __('Gender') }}</th>
+                                        <th width="50px">{{ __('Age') }}</th>
+                                        <th width="50px">{{ __('Phone') }}</th>
+                                        <th width="200px">{{ __('Tests') }}</th>
+                                        <th width="100px">{{ __('Date') }}</th>
+                                        <th class="text-center" width="10px">{{__('Done')}}</th>
+                                        <th class="text-center" width="10px">{{__('Signed')}}</th>
+                                        <th width="50px">{{ __('Action') }}</th> -->
 
                                         <th width="10px">Barcode</th>
-                                        <th width="100px">Patiente Code</th>
-                                        <th>Patiente Name</th>
-                                        <th width="100px">Subtotal</th>
-                                        <th width="100px">Discount</th>
-                                        <th width="100px">Total</th>
-                                        <th width="100px">Paid</th>
-                                        <th width="100px">Due</th>
+                                        <th width="100px">Client Code</th>
+                                        <th>Client Name</th>
+                                        <th width="50px">Gender</th>
+                                        <th width="50px">Age</th>
+                                        <th width="50px">Phone</th>
+                                        <th width="200px">Tests</th>
                                         <th width="100px">Date</th>
-                                        <th width="10px">Status</th>
+                                        <th class="text-center" width="10px">Done</th>
+                                        <th class="text-center" width="10px">Signed</th>
                                         <th width="50px">Action</th>
                                     </tr>
                                     </thead>

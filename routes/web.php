@@ -3,8 +3,9 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
-use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ReportsController;
 use App\Http\Controllers\Admin\DashboardController;
 
 // Route::get('/', function () {
@@ -65,12 +66,16 @@ Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin'],function(){
         Route::get('edit', [ProfileController::class, 'edit'])->name('edit');
         Route::post('update', [ProfileController::class, 'update'])->name('update');
     });
+});
 
+
+// Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin','middleware'=>'Admin'],function(){
+    Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
         //reports
-        Route::resource('reports','ReportsController');
+        Route::resource('reports',ReportsController::class);
         // Route::post('reports/pdf/{id}','ReportsController@pdf')->name('reports.pdf');
         // Route::post('reports/update_culture/{id}','ReportsController@update_culture')->name('reports.update_culture');//update cultures
         // Route::get('get_reports','ReportsController@ajax')->name('get_reports');
         // Route::get('sign_report/{id}','ReportsController@sign')->name('reports.sign');
         // Route::post('reports/send_report_mail/{id}','ReportsController@send_report_mail')->name('reports.send_report_mail');
-});
+    });
