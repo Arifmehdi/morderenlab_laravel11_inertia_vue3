@@ -94,96 +94,104 @@ const submit = () => {
 </template> -->
 
 <template>
-    <div>
+    <div class="hold-transition login-page">
         <Head title="Log in" />
-        <div class="limiter">
-            <div class="container-login100">
-			    <div class="wrap-login100">
-                    <!-- <div class="login100-more" style="background-image: url('{{asset("backend/assets/images/bg-01.jpg")}}');">
-				</div> -->
-                    <div class="login100-more" :style="{ 'background-image': 'url(' + imagePath + ')' }">
-                    </div>
-                    <div class="login100-form">
+        <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+            <a href="../../index2.html" class="h1"><b>Modern</b>Lab</a>
+            </div>
+            <div class="card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
 
-                        <div class="container-login100-form-btn mb-4">
-                            <div class="dropdown text-uppercase">
-                                <button class="btn btn-default dropdown-toggle text-uppercase" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								    <i class="fa fa-globe"></i>{{local}}{{ currentLocale }}
-							    </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <!-- @foreach($languages as $lang)
-                                        @if(app()->getLocale()!=$lang['iso']) <a class="dropdown-item"  href="{{route('change_locale',$lang['iso'])}}">{{$lang['iso']}}</a> @endif
-                                    @endforeach -->
-                                    <div v-for="(lang, index) in languages" :key="index">
-                                        <a v-if="currentLocale !== lang.iso" class="dropdown-item" :href="`/change_locale/${lang.iso}`">{{ lang.iso }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <span class="login100-form-title p-b-30">
-                            <img :src="logoPath" height="100">
-						<!-- <img src="{{asset('backend/img/logo.png')}}" height="100"> -->
-					    </span>
-                        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-
+            <form @submit.prevent="submit">
+                <div class="input-group mb-3">
+                <!-- <input type="email" class="form-control" placeholder="Email"> -->
+                <!-- <//InputLabel class="form-control" for="email" value="Email" /> -->
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="form-control"
                     v-model="form.email"
                     required
                     autofocus
                     autocomplete="username"
                     placeholder ="Enter email"
                 />
-
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                    </div>
+                </div>
                 <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
+                </div>
+                <div class="input-group mb-3">
+                    <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="form-control"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
                     placeholder ="Enter password"
                 />
-
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                    </div>
+                </div>
                 <InputError class="mt-2" :message="form.errors.password" />
-            </div>
+                </div>
+                <div class="row">
+                <div class="col-8">
+                    <div class="icheck-primary">
+                    <!-- <//Checkbox name="remember" v-model:checked="form.remember" /> -->
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                        Remember Me
+                    </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-4">
+                    <PrimaryButton class="btn btn-primary btn-block" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        Log in
+                    </PrimaryButton>
+                    <!-- <button type="submit" class="btn btn-primary btn-block">Sign In</button> -->
+                </div>
+                <!-- /.col -->
+                </div>
+            </form>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
-                </label>
+            <div class="social-auth-links text-center mt-2 mb-3">
+                <a href="#" class="btn btn-block btn-primary">
+                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                </a>
+                <a href="#" class="btn btn-block btn-danger">
+                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                </a>
             </div>
+            <!-- /.social-auth-links -->
 
-            <div class="flex items-center justify-end mt-4">
-                <Link
+            <p class="mb-1">
+                <!-- <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
                     class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                    Forgot your password?
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
+                I forgot my password
+                </Link> -->
+                <a href="#">I forgot my password</a>
+            </p>
+            <p class="mb-0">
+                <a href="#" class="text-center">Register a new membership</a>
+            </p>
             </div>
-        </form>
-                    </div>
-                </div>
-            </div>
+            <!-- /.card-body -->
         </div>
+        <!-- /.card -->
+</div>
     </div>
 </template>
 
